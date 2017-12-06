@@ -17,7 +17,8 @@ ENV \
     LANG=en_US.UTF-8  \
     LANGUAGE=en_US.UTF-8  \
     LC_ALL=en_US.UTF-8
-RUN locale-gen $LANG  && \
+RUN apt-get install -y --no-install-recommends locales  && \
+    locale-gen $LANG  && \
     dpkg-reconfigure locales
 
 # PYENV: Use pyenv to build the desired version of Python (defined by PYENV_VERSION var).
