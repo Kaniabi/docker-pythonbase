@@ -1,4 +1,4 @@
-FROM ubuntu:15.04
+FROM ubuntu:16.04
 
 # PACKAGES: Build and runtime.
 #   NOTE: PYTHONDONTWRITEBYTECODE: Configure Python not to try to write .pyc files on the import of source
