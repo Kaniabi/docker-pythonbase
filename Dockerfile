@@ -13,13 +13,18 @@ RUN apt-get update -q  && \
 
 # LOCALE
 #   NOTE: We must agree to have one language, timezone and locale for all our docker images.
+RUN apt-get install -y --no-install-recommends locales  && \
+    locale-gen en_US.UTF-8  && \
+    dpkg-reconfigure locales
 ENV \
     LANG=en_US.UTF-8  \
     LANGUAGE=en_US.UTF-8  \
     LC_ALL=en_US.UTF-8
-RUN apt-get install -y --no-install-recommends locales  && \
-    locale-gen $LANG  && \
-    dpkg-reconfigure locales
+
+# TIMEZONE
+RUN apt-get install -y --no-install-recommends  tzdata  && \
+    echo "America/Sao_Paulo" > /etc/timezone && \
+    dpkg-reconfigure --frontend noninteractive tzdata
 
 # PYENV: Use pyenv to build the desired version of Python (defined by PYENV_VERSION var).
 ENV PYENV_ROOT=/pyenv
