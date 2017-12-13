@@ -3,5 +3,5 @@ build:
 rebuild:
 	docker build --no-cache -t kaniabi/pythonbase:latest .
 push:
-	docker tag kaniabi/pythonbase:latest kaniabi/pythonbase:4
-	docker push kaniabi/pythonbase:4
+	docker tag kaniabi/pythonbase:latest kaniabi/pythonbase:5
+	docker push kaniabi/pythonbase:5
