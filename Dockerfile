@@ -28,9 +28,9 @@ RUN apt-get install -y --no-install-recommends  tzdata  && \
 
 # PYENV: Use pyenv to build the desired version of Python (defined by PYENV_VERSION var).
 ENV PYENV_ROOT=/pyenv
-ENV PYENV_INSTALL_VERSION=v1.2.0  \
+ENV PYENV_INSTALL_VERSION=v1.2.3  \
     PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH  \
-    PYENV_VERSION=3.6.3
+    PYENV_VERSION=3.6.5
 RUN BUILD_DEPS="build-essential dpkg-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev zlib1g-dev"  && \
     apt-get install -y --no-install-recommends $BUILD_DEPS  && \
     git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT  && \
